@@ -3,320 +3,117 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Декстер - Сериал о маньяке с принципами</title>
-    <link rel="stylesheet" href="styles.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Roboto:wght@300;400;700&display=swap" rel="stylesheet">
-    <style>
-        /* Плавная прокрутка */
-        html {
-            scroll-behavior: smooth;
-        }
-        
-        /* CSS-only эффект крови через checkbox */
-        #blood-toggle {
-            display: none;
-        }
-        
-        .custom-block {
-            position: relative;
-            text-align: center;
-            padding: 40px 20px;
-            background: linear-gradient(135deg, #1a1a1a, #2a2a2a);
-            border-radius: 15px;
-            overflow: hidden;
-        }
-        
-        .custom-block label.custom-btn {
-            display: inline-block;
-            padding: 15px 40px;
-            background: linear-gradient(135deg, #8B0000, #cc0000);
-            color: white;
-            border: none;
-            border-radius: 30px;
-            cursor: pointer;
-            font-size: 18px;
-            font-weight: bold;
-            transition: all 0.3s ease;
-            text-transform: uppercase;
-            letter-spacing: 2px;
-        }
-        
-        .custom-block label.custom-btn:hover {
-            transform: translateY(-3px);
-            box-shadow: 0 10px 30px rgba(139, 0, 0, 0.5);
-        }
-        
-        .blood-effect-css {
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: radial-gradient(circle, rgba(139, 0, 0, 0.8) 0%, transparent 70%);
-            opacity: 0;
-            visibility: hidden;
-            transition: all 0.5s ease;
-            pointer-events: none;
-        }
-        
-        #blood-toggle:checked ~ .blood-effect-css {
-            opacity: 1;
-            visibility: visible;
-            animation: bloodPulse 3s ease-in-out;
-        }
-        
-        @keyframes bloodPulse {
-            0% { opacity: 0; }
-            20% { opacity: 1; }
-            80% { opacity: 1; }
-            100% { opacity: 0; }
-        }
-        
-        /* Анимация при скролле через CSS */
-        .advantage-card, .character-card, .gallery-item, .timeline-item, .stat-item {
-            animation: fadeInUp 0.8s ease forwards;
-            opacity: 0;
-        }
-        
-        .advantage-card:nth-child(1) { animation-delay: 0.1s; }
-        .advantage-card:nth-child(2) { animation-delay: 0.2s; }
-        .advantage-card:nth-child(3) { animation-delay: 0.3s; }
-        .advantage-card:nth-child(4) { animation-delay: 0.4s; }
-        
-        .character-card:nth-child(1) { animation-delay: 0.1s; }
-        .character-card:nth-child(2) { animation-delay: 0.2s; }
-        .character-card:nth-child(3) { animation-delay: 0.3s; }
-        .character-card:nth-child(4) { animation-delay: 0.4s; }
-        
-        .gallery-item:nth-child(1) { animation-delay: 0.1s; }
-        .gallery-item:nth-child(2) { animation-delay: 0.2s; }
-        .gallery-item:nth-child(3) { animation-delay: 0.3s; }
-        .gallery-item:nth-child(4) { animation-delay: 0.4s; }
-        .gallery-item:nth-child(5) { animation-delay: 0.5s; }
-        .gallery-item:nth-child(6) { animation-delay: 0.6s; }
-        
-        .timeline-item:nth-child(1) { animation-delay: 0.1s; }
-        .timeline-item:nth-child(2) { animation-delay: 0.2s; }
-        .timeline-item:nth-child(3) { animation-delay: 0.3s; }
-        .timeline-item:nth-child(4) { animation-delay: 0.4s; }
-        .timeline-item:nth-child(5) { animation-delay: 0.5s; }
-        
-        .stat-item:nth-child(1) { animation-delay: 0.1s; }
-        .stat-item:nth-child(2) { animation-delay: 0.2s; }
-        .stat-item:nth-child(3) { animation-delay: 0.3s; }
-        .stat-item:nth-child(4) { animation-delay: 0.4s; }
-        
-        @keyframes fadeInUp {
-            from {
-                opacity: 0;
-                transform: translateY(30px);
-            }
-            to {
-                opacity: 1;
-                transform: translateY(0);
-            }
-        }
-        
-        /* Анимация счётчиков */
-        .stat-number {
-            display: inline-block;
-            animation: countUp 2s ease forwards;
-        }
-        
-        @keyframes countUp {
-            from {
-                opacity: 0;
-                transform: scale(0.5);
-            }
-            to {
-                opacity: 1;
-                transform: scale(1);
-            }
-        }
-        
-        /* Ховер эффекты для кнопок соцсетей */
-        .social-btn, .social-link, .footer-social a {
-            transition: all 0.3s ease;
-        }
-        
-        .social-btn:hover, .social-link:hover, .footer-social a:hover {
-            transform: translateY(-5px) scale(1.1);
-        }
-        
-        /* Параллакс эффект для hero через CSS */
-        .hero {
-            background-attachment: fixed;
-            background-position: center;
-            background-repeat: no-repeat;
-            background-size: cover;
-        }
-        
-        /* Убираем ссылку на JS файл */
-    </style>
+    <title>DEXTER | Tonight's the night</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Montserrat:wght@300;400;700;900&display=swap" rel="stylesheet">
 </head>
 <body>
-    <!-- Шапка сайта -->
-    <header class="header">
-        <div class="container header-content">
-            <div class="logo">
-                <h1><span class="blood">DEXTER</span></h1>
-            </div>
-            <nav class="main-nav">
-                <ul>
-                    <li><a href="#home">Главная</a></li>
-                    <li><a href="#about">О сериале</a></li>
-                    <li><a href="#characters">Персонажи</a></li>
-                    <li><a href="#gallery">Галерея</a></li>
-                    <li><a href="#stages">Этапы</a></li>
-                    <li><a href="#contact">Контакты</a></li>
-                </ul>
-            </nav>
-            <div class="header-social">
-                <a href="https://facebook.com/dexter" target="_blank" class="social-btn facebook"><i class="fab fa-facebook-f"></i></a>
-                <a href="https://twitter.com/dexter" target="_blank" class="social-btn twitter"><i class="fab fa-twitter"></i></a>
-                <a href="https://instagram.com/dexter" target="_blank" class="social-btn instagram"><i class="fab fa-instagram"></i></a>
-            </div>
-        </div>
-    </header>
+    <!-- Canvas для крови -->
+    <canvas id="bloodCanvas"></canvas>
+
+    <!-- Шум на фоне -->
+    <div class="noise-overlay"></div>
+
+    <!-- Навигация -->
+    <nav class="navbar">
+        <div class="logo">DEXTER</div>
+        <ul class="nav-links">
+            <li><a href="#home">Главная</a></li>
+            <li><a href="#about">Кодекс</a></li>
+            <li><a href="#characters">Цели</a></li>
+            <li><a href="#gallery">Улики</a></li>
+        </ul>
+        <button class="blood-btn" id="bloodToggle">
+            <span class="btn-text">RELEASE BLOOD</span>
+            <div class="btn-drip"></div>
+        </button>
+    </nav>
 
     <!-- Главный экран -->
-    <section id="home" class="hero">
-        <div class="hero-overlay"></div>
-        <div class="container hero-content">
-            <h2 class="hero-title">Сегодня будет кровопролитный день</h2>
-            <p class="hero-subtitle">Добро пожаловать в мир Декстера Моргана - судмедэксперта по брызгам крови и серийного убийцы с принципами</p>
-            <a href="#about" class="btn btn-primary">Узнать больше</a>
+    <header id="home" class="hero">
+        <div class="hero-content">
+            <h1 class="glitch-title" data-text="TONIGHT'S THE NIGHT">TONIGHT'S THE NIGHT</h1>
+            <p class="subtitle">Судебный эксперт. Серийный убийца. Твой сосед.</p>
+            <div class="scroll-indicator">
+                <span>ЛИСТАЙ ВНИЗ</span>
+                <div class="line"></div>
+            </div>
         </div>
-    </section>
-
-    <!-- Разделитель -->
-    <div class="divider">
-        <div class="blood-drip"></div>
-        <div class="blood-drip"></div>
-        <div class="blood-drip"></div>
-    </div>
+        <div class="vignette"></div>
+    </header>
 
     <!-- О сериале -->
-    <section id="about" class="section about">
+    <section id="about" class="section">
         <div class="container">
-            <h2 class="section-title">О сериале</h2>
-            <div class="about-content">
-                <div class="about-text">
-                    <p><strong>«Декстер»</strong> — американский драматический телесериал, который выходил на канале Showtime с 1 октября 2006 года по 22 сентября 2013 года.</p>
-                    <p>В главной роли — Майкл Си Холл в роли Декстера Моргана, судмедэксперта по брызгам крови в полиции Майами, который ведёт двойную жизнь: он серийный убийца, который убивает только других убийц, избежавших правосудия.</p>
-                    <p>Сериал основан на романе Джеффа Линдсея «Дремлющий демон Декстера» и стал одним из самых популярных проектов Showtime.</p>
+            <div class="section-header">
+                <h2>ТЕМНЫЙ ПАССАЖИР</h2>
+                <div class="divider"></div>
+            </div>
+            <div class="about-grid">
+                <div class="about-text fade-in">
+                    <p>Декстер Морган — идеальный семьянин и ценитель утреннего кофе. Но внутри него живет "Тёмный пассажир" — неутолимая жажда крови.</p>
+                    <p>Следуя <strong>Кодексу Гарри</strong>, он направляет свои инстинкты только на тех, кто избежал правосудия. Чисто. Аккуратно. Без следов.</p>
                 </div>
-                <div class="about-stats">
-                    <div class="stat-item">
-                        <span class="stat-number">8</span>
-                        <span class="stat-label">Сезонов</span>
+                <div class="stats-container fade-in">
+                    <div class="stat-box">
+                        <span class="stat-number" data-target="96">0</span>
+                        <span class="stat-desc">Подарочных коробок</span>
                     </div>
-                    <div class="stat-item">
-                        <span class="stat-number">96</span>
-                        <span class="stat-label">Эпизодов</span>
+                    <div class="stat-box">
+                        <span class="stat-number" data-target="8">0</span>
+                        <span class="stat-desc">Сезонов ада</span>
                     </div>
-                    <div class="stat-item">
-                        <span class="stat-number">8+</span>
-                        <span class="stat-label">Наград</span>
-                    </div>
-                    <div class="stat-item">
-                        <span class="stat-number">2006-2013</span>
-                        <span class="stat-label">Годы выхода</span>
+                    <div class="stat-box">
+                        <span class="stat-number" data-target="100">0</span>
+                        <span class="stat-desc">% Мрака</span>
                     </div>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- Преимущества -->
-    <section class="section advantages">
+    <!-- Персонажи -->
+    <section id="characters" class="section dark-bg">
         <div class="container">
-            <h2 class="section-title">Почему стоит смотреть</h2>
-            <div class="advantages-grid">
-                <div class="advantage-card">
-                    <div class="advantage-icon">
-                        <i class="fas fa-brain"></i>
-                    </div>
-                    <h3>Уникальный сюжет</h3>
-                    <p>Нестандартный взгляд на мир через глаза антигероя, за которого переживаешь несмотря ни на что</p>
-                </div>
-                <div class="advantage-card">
-                    <div class="advantage-icon">
-                        <i class="fas fa-user-secret"></i>
-                    </div>
-                    <h3>Глубокие персонажи</h3>
-                    <p>Многогранные герои с проработанной историей и мотивацией, которые запоминаются надолго</p>
-                </div>
-                <div class="advantage-card">
-                    <div class="advantage-icon">
-                        <i class="fas fa-film"></i>
-                    </div>
-                    <h3>Кинематография</h3>
-                    <p>Высококачественная съёмка, атмосферная музыка и визуальные эффекты высшего уровня</p>
-                </div>
-                <div class="advantage-card">
-                    <div class="advantage-icon">
-                        <i class="fas fa-heart"></i>
-                    </div>
-                    <h3>Эмоциональная глубина</h3>
-                    <p>Сериал поднимает сложные моральные вопросы и заставляет задуматься о природе добра и зла</p>
-                </div>
+            <div class="section-header">
+                <h2>СПИСОК ЦЕЛЕЙ</h2>
+                <div class="divider"></div>
             </div>
-        </div>
-    </section>
-
-    <!-- Персонажи / Команда -->
-    <section id="characters" class="section characters">
-        <div class="container">
-            <h2 class="section-title">Главные персонажи</h2>
             <div class="characters-grid">
-                <div class="character-card">
-                    <div class="character-image" style="background-image: url('https://images.weserv.nl/?url=https://upload.wikimedia.org/wikipedia/ru/thumb/8/82/Dexter.jpg/960px-Dexter.jpg&w=400&h=500&fit=cover'); background-size: cover; background-position: center;">
-                        <div class="character-overlay">
+                <!-- Декстер -->
+                <div class="character-card tilt-card">
+                    <div class="card-image" style="background-image: url('https://images.weserv.nl/?url=https://upload.wikimedia.org/wikipedia/ru/thumb/8/82/Dexter.jpg/960px-Dexter.jpg&w=400&h=600&fit=cover&q=90');">
+                        <div class="card-overlay">
                             <h3>ДЕКСТЕР</h3>
+                            <p>МОНСТР</p>
                         </div>
                     </div>
-                    <div class="character-info">
-                        <h3>Декстер Морган</h3>
-                        <p class="actor">Майкл Си Холл</p>
-                        <p class="description">Судмедэксперт по брызгам крови с тёмной тайной</p>
-                    </div>
                 </div>
-                <div class="character-card">
-                    <div class="character-image" style="background-image: url('https://images.weserv.nl/?url=https://i.pinimg.com/originals/58/f3/b8/58f3b88d4ba437137e0211c909ddaea9.jpg?nii=t&w=400&h=500&fit=cover'); background-size: cover; background-position: center;">
-                        <div class="character-overlay">
+                <!-- Дебра -->
+                <div class="character-card tilt-card">
+                    <div class="card-image" style="background-image: url('https://images.weserv.nl/?url=https://i.pinimg.com/originals/58/f3/b8/58f3b88d4ba437137e0211c909ddaea9.jpg?nii=t&w=400&h=600&fit=cover&q=90');">
+                        <div class="card-overlay">
                             <h3>ДЕБРА</h3>
+                            <p>ЖЕРТВА</p>
                         </div>
                     </div>
-                    <div class="character-info">
-                        <h3>Дебра Морган</h3>
-                        <p class="actor">Дженнифер Карпентер</p>
-                        <p class="description">Детектив полиции Майами, сводная сестра Декстера</p>
-                    </div>
                 </div>
-                <div class="character-card">
-                    <div class="character-image" style="background-image: url('https://images.weserv.nl/?url=https://i.pinimg.com/736x/fb/0f/ce/fb0fcee71803ac02bfe6464a5febf452.jpg&w=400&h=500&fit=cover'); background-size: cover; background-position: center;">
-                        <div class="character-overlay">
+                <!-- Рита -->
+                <div class="character-card tilt-card">
+                    <div class="card-image" style="background-image: url('https://images.weserv.nl/?url=https://i.pinimg.com/736x/fb/0f/ce/fb0fcee71803ac02bfe6464a5febf452.jpg&w=400&h=600&fit=cover&q=90');">
+                        <div class="card-overlay">
                             <h3>РИТА</h3>
+                            <p>НЕВИННАЯ</p>
                         </div>
-                    </div>
-                    <div class="character-info">
-                        <h3>Рита Беннет</h3>
-                        <p class="actor">Джули Бенц</p>
-                        <p class="description">Девушка Декстера, мать двоих детей</p>
                     </div>
                 </div>
-                <div class="character-card">
-                    <div class="character-image" style="background-image: url('https://images.weserv.nl/?url=https://i.pinimg.com/originals/a4/7d/8f/a47d8fd6bc877f6bff138fad434180fc.jpg?nii=t&w=400&h=500&fit=cover'); background-size: cover; background-position: center;">
-                        <div class="character-overlay">
+                <!-- Доакс -->
+                <div class="character-card tilt-card">
+                    <div class="card-image" style="background-image: url('https://images.weserv.nl/?url=https://i.pinimg.com/originals/a4/7d/8f/a47d8fd6bc877f6bff138fad434180fc.jpg?nii=t&w=400&h=600&fit=cover&q=90');">
+                        <div class="card-overlay">
                             <h3>ДОАКС</h3>
+                            <p>СВИДЕТЕЛЬ</p>
                         </div>
-                    </div>
-                    <div class="character-info">
-                        <h3>Сержант Доакс</h3>
-                        <p class="actor">Эрик Кинг</p>
-                        <p class="description">Подозрительный коллега, который чувствует неладное</p>
                     </div>
                 </div>
             </div>
@@ -324,200 +121,69 @@
     </section>
 
     <!-- Галерея -->
-    <section id="gallery" class="section gallery">
+    <section id="gallery" class="section">
         <div class="container">
-            <h2 class="section-title">Галерея</h2>
+            <div class="section-header">
+                <h2>МЕСТО ПРЕСТУПЛЕНИЯ</h2>
+                <div class="divider"></div>
+            </div>
             <div class="gallery-grid">
-                <div class="gallery-item item-1" style="background-color: #330000;">
-                    <div class="gallery-placeholder-text">СЦЕНА 1</div>
+                <div class="gallery-item" data-video="https://www.youtube.com/embed/PkAq4X6JzOg?autoplay=1">
+                    <div class="gallery-img" style="background-image: url('https://images.weserv.nl/?url=https://wallpapers.com/images/hd/dexter-morgan-splatter-art-p9w3j5k6l7m8n9o0.jpg&w=600&h=400&fit=cover');"></div>
+                    <div class="play-icon">▶</div>
                 </div>
-                <div class="gallery-item item-2" style="background-color: #440000;">
-                    <div class="gallery-placeholder-text">СЦЕНА 2</div>
+                <div class="gallery-item">
+                    <div class="gallery-img" style="background-image: url('https://images.weserv.nl/?url=https://media.vulture.com/wp-content/uploads/2013/09/dexter-season-8.jpg&w=600&h=400&fit=cover');"></div>
                 </div>
-                <div class="gallery-item item-3" style="background-color: #550000;">
-                    <div class="gallery-placeholder-text">СЦЕНА 3</div>
+                <div class="gallery-item">
+                    <div class="gallery-img" style="background-image: url('https://images.weserv.nl/?url=https://static.wikia.nocookie.net/dexter/images/2/22/Dexter_s1_e1.jpg&w=600&h=400&fit=cover');"></div>
                 </div>
-                <div class="gallery-item item-4" style="background-color: #660000;">
-                    <div class="gallery-placeholder-text">СЦЕНА 4</div>
-                </div>
-                <div class="gallery-item item-5" style="background-color: #770000;">
-                    <div class="gallery-placeholder-text">NEW BLOOD</div>
-                </div>
-                <div class="gallery-item item-6" style="background-color: #880000;">
-                    <div class="gallery-placeholder-text">СЦЕНА 6</div>
+                <div class="gallery-item">
+                    <div class="gallery-img" style="background-image: url('https://images.weserv.nl/?url=https://cdn.images.express.co.uk/img/dynamic/128/590x/Dexter-New-Blood-1384657.jpg&w=600&h=400&fit=cover');"></div>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- Этапы / Сезоны -->
-    <section id="stages" class="section stages">
+    <!-- Модальное окно -->
+    <div id="videoModal" class="modal">
+        <div class="modal-content">
+            <span class="close-modal">&times;</span>
+            <div class="video-wrapper">
+                <iframe id="videoFrame" src="" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
+            </div>
+        </div>
+    </div>
+
+    <!-- Контакты -->
+    <section id="contact" class="section dark-bg">
         <div class="container">
-            <h2 class="section-title">Этапы сериала</h2>
-            <div class="timeline">
-                <div class="timeline-item">
-                    <div class="timeline-marker">1</div>
-                    <div class="timeline-content">
-                        <h3>Сезон 1: Убийца из Айстэйда</h3>
-                        <p>Декстер знакомится с новым коллегой и сталкивается с убийцей, который замораживает своих жертв</p>
-                    </div>
-                </div>
-                <div class="timeline-item">
-                    <div class="timeline-marker">2</div>
-                    <div class="timeline-content">
-                        <h3>Сезон 2: Палач из Бай Харбор</h3>
-                        <p>Тела жертв Декстера найдены на дне океана, и начинается охота на неизвестного убийцу</p>
-                    </div>
-                </div>
-                <div class="timeline-item">
-                    <div class="timeline-marker">3</div>
-                    <div class="timeline-content">
-                        <h3>Сезон 3: Лила</h3>
-                        <p>Декстер встречает женщину, которая понимает его тёмную сторону слишком хорошо</p>
-                    </div>
-                </div>
-                <div class="timeline-item">
-                    <div class="timeline-marker">4</div>
-                    <div class="timeline-content">
-                        <h3>Сезон 4: Троица</h3>
-                        <p>Один из самых напряжённых сезонов с противостоянием опытному серийному убийце</p>
-                    </div>
-                </div>
-                <div class="timeline-item">
-                    <div class="timeline-marker">5</div>
-                    <div class="timeline-content">
-                        <h3>Сезон 5-8: Финальные главы</h3>
-                        <p>Завершение истории Декстера, раскрытие всех тайн и финальное противостояние</p>
-                    </div>
-                </div>
+            <div class="section-header">
+                <h2>ОТПРАВИТЬ ДОКАЗАТЕЛЬСТВА</h2>
+                <div class="divider"></div>
             </div>
+            <form class="contact-form">
+                <div class="input-group">
+                    <input type="text" placeholder="Имя" required>
+                    <span class="bar"></span>
+                </div>
+                <div class="input-group">
+                    <input type="email" placeholder="Email" required>
+                    <span class="bar"></span>
+                </div>
+                <div class="input-group">
+                    <textarea placeholder="Твои грязные секреты..." rows="4" required></textarea>
+                    <span class="bar"></span>
+                </div>
+                <button type="submit" class="btn-submit">ОТПРАВИТЬ</button>
+            </form>
         </div>
     </section>
 
-    <!-- HTML-блок для кастомизации (CSS-only) -->
-    <section class="custom-html-section">
-        <div class="container">
-            <div class="custom-block" id="customBlock">
-                <input type="checkbox" id="blood-toggle">
-                <h2>Интерактивный элемент</h2>
-                <p>Нажмите на кнопку ниже, чтобы увидеть эффект</p>
-                <label for="blood-toggle" class="custom-btn">Показать кровь</label>
-                <div class="blood-effect-css"></div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Форма регистрации/заказа -->
-    <section class="section contact-form-section">
-        <div class="container">
-            <h2 class="section-title">Присоединиться к фан-клубу</h2>
-            <div class="form-wrapper">
-                <form class="contact-form" action="#" method="post">
-                    <div class="form-group">
-                        <label for="name">Ваше имя</label>
-                        <input type="text" id="name" name="name" required placeholder="Как вас называть?">
-                    </div>
-                    <div class="form-group">
-                        <label for="email">Email</label>
-                        <input type="email" id="email" name="email" required placeholder="example@mail.com">
-                    </div>
-                    <div class="form-group">
-                        <label for="phone">Телефон</label>
-                        <input type="tel" id="phone" name="phone" placeholder="+7 (___) ___-__-__">
-                    </div>
-                    <div class="form-group">
-                        <label for="message">Сообщение</label>
-                        <textarea id="message" name="message" rows="4" placeholder="Ваши впечатления о сериале..."></textarea>
-                    </div>
-                    <button type="submit" class="btn btn-submit">Отправить</button>
-                </form>
-            </div>
-        </div>
-    </section>
-
-    <!-- Контакты с картой -->
-    <section id="contact" class="section contacts">
-        <div class="container">
-            <h2 class="section-title">Контакты</h2>
-            <div class="contacts-wrapper">
-                <div class="contact-info">
-                    <div class="contact-item">
-                        <i class="fas fa-map-marker-alt"></i>
-                        <div>
-                            <h4>Адрес</h4>
-                            <p>г. Майами, ул. Бискайн, 100</p>
-                        </div>
-                    </div>
-                    <div class="contact-item">
-                        <i class="fas fa-phone"></i>
-                        <div>
-                            <h4>Телефон</h4>
-                            <p>+1 (305) 555-0123</p>
-                        </div>
-                    </div>
-                    <div class="contact-item">
-                        <i class="fas fa-envelope"></i>
-                        <div>
-                            <h4>Email</h4>
-                            <p>info@dexter-fan.ru</p>
-                        </div>
-                    </div>
-                    <div class="contact-social">
-                        <h4>Мы в соцсетях</h4>
-                        <div class="social-links">
-                            <a href="https://facebook.com/dexter" target="_blank" class="social-link facebook"><i class="fab fa-facebook-f"></i> Facebook</a>
-                            <a href="https://twitter.com/dexter" target="_blank" class="social-link twitter"><i class="fab fa-twitter"></i> Twitter</a>
-                            <a href="https://instagram.com/dexter" target="_blank" class="social-link instagram"><i class="fab fa-instagram"></i> Instagram</a>
-                            <a href="https://youtube.com/dexter" target="_blank" class="social-link youtube"><i class="fab fa-youtube"></i> YouTube</a>
-                        </div>
-                    </div>
-                </div>
-                <div class="map-container">
-                    <iframe 
-                        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d228647.14968664735!2d-80.3194805!3d25.7823907!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x88d9b0a20ec8c111%3A0xff96f271ddad4f65!2z0JrRgNCw0YHQutC40Lkg0L_RgNC-0YDQvtCy0YHQutCw0Y8g0L7QsdC70LDRgdGC0YwsINCf0LXRgtC10L3QuNGG0LAg0L7QsdC70LDRgdGC0YwsINCf0LXRgtC10YDQvtCy0YHQutCw0Yg!5e0!3m2!1sru!2sru!4v1234567890" 
-                        width="100%" 
-                        height="400" 
-                        style="border:0;" 
-                        allowfullscreen="" 
-                        loading="lazy" 
-                        referrerpolicy="no-referrer-when-downgrade">
-                    </iframe>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Подвал -->
-    <footer class="footer">
-        <div class="container footer-content">
-            <div class="footer-section">
-                <h3>DEXTER</h3>
-                <p>Фан-сайт посвящённый культовому сериалу о Декстере Моргане</p>
-            </div>
-            <div class="footer-section">
-                <h4>Навигация</h4>
-                <ul>
-                    <li><a href="#home">Главная</a></li>
-                    <li><a href="#about">О сериале</a></li>
-                    <li><a href="#characters">Персонажи</a></li>
-                    <li><a href="#gallery">Галерея</a></li>
-                </ul>
-            </div>
-            <div class="footer-section">
-                <h4>Соцсети</h4>
-                <div class="footer-social">
-                    <a href="https://facebook.com/dexter" target="_blank"><i class="fab fa-facebook-f"></i></a>
-                    <a href="https://twitter.com/dexter" target="_blank"><i class="fab fa-twitter"></i></a>
-                    <a href="https://instagram.com/dexter" target="_blank"><i class="fab fa-instagram"></i></a>
-                    <a href="https://youtube.com/dexter" target="_blank"><i class="fab fa-youtube"></i></a>
-                </div>
-            </div>
-        </div>
-        <div class="footer-bottom">
-            <div class="container">
-                <p>&copy; 2024 Dexter Fan Site. Все права защищены. Сайт создан фанатами для фанатов.</p>
-            </div>
-        </div>
+    <footer>
+        <p>DESIGNED BY HARRY'S CODE &copy; 2023</p>
     </footer>
+
+    <script src="script.js"></script>
 </body>
 </html>
